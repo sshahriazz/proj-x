@@ -15,8 +15,12 @@ function ProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative size-12 rounded-full">
-          <Avatar className="size-12">
+        <Button
+          variant="ghost"
+          className="relative size-10 rounded-full hover:bg-black"
+        >
+          <Avatar className="size-10">
+            {/* TODO:: Add user avatar */}
             <AvatarImage src={'/placeholder-avatar.jpg'} alt="User avatar" />
             <AvatarFallback>{'JD'}</AvatarFallback>
           </Avatar>
