@@ -22,16 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TopNavigationBar />
-          {children}
-        </ThemeProvider>
+      <body className={`antialiased`} vaul-drawer-wrapper="">
+        <div className="bg-background relative flex min-h-screen flex-col">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TopNavigationBar />
+            {children}
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

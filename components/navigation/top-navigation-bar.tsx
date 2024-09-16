@@ -9,7 +9,7 @@ import ToggleDarkMode from './toggle-dark-mode';
 
 function TopNavigationBar() {
   return (
-    <header className="flex items-center justify-between p-2">
+    <header className="border-grey flex items-center justify-between border-b px-3 py-2 shadow-sm">
       <div className="flex">
         <MenuToggle />
         <BrandLogo appLogo={<Apple className="size-5" />} appName="UI" />

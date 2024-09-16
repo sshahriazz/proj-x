@@ -15,8 +15,6 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
-// import { Icons } from '@/components/icons';
-
 const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Alert Dialog',
@@ -57,7 +55,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function DesktopMenu() {
   return (
-    <NavigationMenu className="hidden sm:block">
+    <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
