@@ -34,7 +34,10 @@ export default function BrandLogo({
         appLogo
       )}
       <span
-        className={cn('text-primary text-xl font-bold', textClassName)}
+        className={cn(
+          'text-primary hidden text-xl font-bold md:block',
+          textClassName
+        )}
         aria-label={`${appName} logo`}
       >
         {appName}

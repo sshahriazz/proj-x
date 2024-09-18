@@ -15,6 +15,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
+// Define the components array
 const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Alert Dialog',
@@ -53,67 +54,82 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
+// Define the getting started array
+const gettingStarted: { title: string; href: string; description: string }[] = [
+  {
+    title: 'shadcn/ui',
+    href: '/',
+    description:
+      'Beautifully designed components built with Radix UI and Tailwind CSS.',
+  },
+  {
+    title: 'Introduction',
+    href: '/docs',
+    description: 'Re-usable components built using Radix UI and Tailwind CSS.',
+  },
+  {
+    title: 'Installation',
+    href: '/docs/installation',
+    description: 'How to install dependencies and structure your app.',
+  },
+  {
+    title: 'Typography',
+    href: '/docs/primitives/typography',
+    description: 'Styles for headings, paragraphs, lists...etc',
+  },
+];
+
+// Create the tree structure
+const menuTree = [
+  {
+    title: 'Getting started',
+    href: '/',
+    children: gettingStarted,
+  },
+  {
+    title: 'Components',
+    href: '/docs/primitives',
+    children: components,
+  },
+  {
+    title: 'Documentation',
+    href: '/docs',
+    children: [], // Add an empty children array to avoid duplication
+  },
+];
+
 export default function DesktopMenu() {
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="from-muted/50 to-muted flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    {/* <Icons.logo className="size-6" /> */}
-                    <X className="size-6" />
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
+        {menuTree.map((menuItem) => (
+          <NavigationMenuItem key={menuItem.title}>
+            {menuItem.children && menuItem.children.length > 0 ? (
+              <>
+                <NavigationMenuTrigger>{menuItem.title}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    {menuItem.children.map((child) => (
+                      <ListItem
+                        key={child.title}
+                        title={child.title}
+                        href={child.href}
+                      >
+                        {child.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </>
+            ) : (
+              <Link href={menuItem.href} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {menuItem.title}
                 </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+              </Link>
+            )}
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );

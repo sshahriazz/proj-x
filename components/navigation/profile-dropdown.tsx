@@ -35,11 +35,11 @@ function ProfileDropdown() {
         align="end"
         className="animate-in zoom-in-95 w-56 duration-200"
       >
-        <DropdownMenuLabel>John Doe</DropdownMenuLabel>
+        <DropdownMenuLabel>Menu</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <User className="mr-2 size-4" />
-          <span>Profile</span>
+          <span>John Doe</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Settings className="mr-2 size-4" />
