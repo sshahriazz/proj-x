@@ -86,3 +86,16 @@ export const routes: MenuItem[] = [
     children: [], // Add an empty children array to avoid duplication
   },
 ];
+
+export const seoConfig = {
+  title: 'shadcn/ui',
+  description:
+    'Beautifully designed components built with Radix UI and Tailwind CSS.',
+  url: 'https://shadcn/ui',
+  twitter: '@shadcn',
+  image: '/placeholder.svg',
+};
+
+export const siteConfig = {
+  isNavSticky: false,
+};

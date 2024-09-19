@@ -1,5 +1,30 @@
 import React from 'react';
+import { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Home Page - Next.js App',
+  description: 'This is the home page of a Next.js application.',
+  openGraph: {
+    title: 'Home Page - Next.js App',
+    description: 'This is the home page of a Next.js application.',
+    url: 'https://yourwebsite.com',
+    images: [
+      {
+        url: 'https://nextjs.org/icons/next.svg',
+        width: 800,
+        height: 600,
+        alt: 'Next.js logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Home Page - Next.js App',
+    description: 'This is the home page of a Next.js application.',
+    images: ['https://nextjs.org/icons/next.svg'],
+  },
+};
 
 export default function HomePage() {
   return (

@@ -1,9 +1,34 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+
+export const metadata: Metadata = {
+  title: 'Login - Next.js App',
+  description: 'Enter your email below to login to your account.',
+  openGraph: {
+    title: 'Login - Next.js App',
+    description: 'Enter your email below to login to your account.',
+    url: 'https://yourwebsite.com/login',
+    images: [
+      {
+        url: 'https://yourwebsite.com/images/login-page.png',
+        width: 800,
+        height: 600,
+        alt: 'Login Page',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Login - Next.js App',
+    description: 'Enter your email below to login to your account.',
+    images: ['https://yourwebsite.com/images/login-page.png'],
+  },
+};
 
 export default function LoginPage() {
   return (

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,30 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+
+export const metadata: Metadata = {
+  title: 'Register - Next.js App',
+  description: 'Create an account by entering your information.',
+  openGraph: {
+    title: 'Register - Next.js App',
+    description: 'Create an account by entering your information.',
+    url: 'https://yourwebsite.com/register',
+    images: [
+      {
+        url: 'https://yourwebsite.com/images/register-page.png',
+        width: 800,
+        height: 600,
+        alt: 'Register Page',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Register - Next.js App',
+    description: 'Create an account by entering your information.',
+    images: ['https://yourwebsite.com/images/register-page.png'],
+  },
+};
 
 export default function RegisterPage() {
   return (
