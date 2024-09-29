@@ -1,5 +1,6 @@
 // @ts-check
 import withSerwistInit from '@serwist/next';
+import crypto from 'crypto'
 
 // You may want to use a more robust revision to cache
 // files more efficiently.
